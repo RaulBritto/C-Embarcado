@@ -6,4 +6,7 @@ all: main.o
 	g++ -o main.cpp	
 
 main.o: main.cpp
-	g++ -o main.cpp
+	g++ -o main.cpp -std=c++11
+
+clear: 
+	rm -f *.o
