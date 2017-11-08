@@ -1,13 +1,15 @@
 
-all: main.o Currency.o
-	g++ -o main.cpp	
+all: teste
+
+teste: main.o Currency.o
+
 
 Currency.o: Currency.cpp
 	g++ -std=c++11 -c Currency.cpp
 	
 
 main.o: main.cpp
-	g++ -o main.cpp -std=c++11
+	g++ main.cpp -std=c++11 -o main.o
 
 clear: 
 	rm -f *.o
