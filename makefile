@@ -1,15 +1,19 @@
+TARGET = prog
+CC = g++
+CFLAGS = -g -Wall -std=c++11
 
-all: teste
+OBJECTS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+HEADERS = $(wildcard *.h)
 
-teste: main.o Currency.o
+default: $(TARGET)
+all: default
 
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-Currency.o: Currency.cpp
-	g++ -std=c++11 -c Currency.cpp
-	
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
 
-main.o: main.cpp
-	g++ main.cpp -std=c++11 -o main.o
-
-clear: 
-	rm -f *.o
+clean:
+	-rm -f $(TARGET)
+	-rm -f *.o
