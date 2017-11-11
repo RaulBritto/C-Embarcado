@@ -74,12 +74,12 @@ string View::changeCurrency(){
 				case 3:	return "JPY";
 				case 4:	return "CNY";
 				default:
-						cout << "Unavailable Currency!\n";
+						throw(exception());
 			}
 		}catch(exception e){
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				cout << "Unavailable Option!\n";
+				cout << "Unavailable Currency!\n";
 		}
 	}
 }
